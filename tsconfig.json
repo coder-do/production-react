@@ -10,6 +10,11 @@
         "target": "es5",
         "jsx": "react-jsx",
         "baseUrl": ".",
+        "paths": {
+            "*": [
+                "./src/*"
+            ]
+        },
         // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
         "allowJs": true,
         "moduleResolution": "node",
