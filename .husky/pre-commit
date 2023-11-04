@@ -3,4 +3,5 @@
 
 npm run lint:ts:fix
 npm run lint:scss:fix
+git add .
 npx lint-staged
