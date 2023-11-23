@@ -12,9 +12,11 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage/model/types/articlesPageSchema';
+import { UISchema } from 'features/UI';
 
 export interface StateSchema {
   user: UserSchema;
+  ui: UISchema;
 
   // Асинхронные редюсеры
   loginForm?: LoginSchema;
@@ -27,11 +29,14 @@ export interface StateSchema {
 
 export type StateSchemaKey = keyof StateSchema;
 
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
+
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateSchema>;
   reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
   add: (key: StateSchemaKey, reducer: Reducer) => void;
   remove: (key: StateSchemaKey) => void;
+  getMountedReducers: () => MountedReducers;
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
