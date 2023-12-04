@@ -62,6 +62,7 @@ module.exports = {
     'react/prop-types': 'off',
     'no-console': 'off',
     'linebreak-style': 'off',
+    'arrow-body-style': 'off',
   },
   globals: {
     __IS_DEV__: true,

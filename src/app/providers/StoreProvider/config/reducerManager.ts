@@ -11,11 +11,11 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
   let combinedReducer = combineReducers(reducers);
 
   let keysToRemove: Array<StateSchemaKey> = [];
-
   const mountedReducers: MountedReducers = {};
 
   return {
     getReducerMap: () => reducers,
+    getMountedReducers: () => mountedReducers,
     reduce: (state: StateSchema, action: AnyAction) => {
       if (keysToRemove.length > 0) {
         state = { ...state };
@@ -40,10 +40,10 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
         return;
       }
       delete reducers[key];
-      mountedReducers[key] = false;
       keysToRemove.push(key);
+      mountedReducers[key] = false;
+
       combinedReducer = combineReducers(reducers);
     },
-    getMountedReducers: () => mountedReducers,
   };
 }
