@@ -22,6 +22,7 @@ module.exports = {
     '@typescript-eslint',
     'i18next',
     'react-hooks',
+    'mkiloyan-path-plugin',
   ],
   rules: {
     'react/jsx-indent': [2, 2],
@@ -44,7 +45,7 @@ module.exports = {
       'warn',
       {
         markupOnly: true,
-        ignoreAttribute: ['data-testid', 'to'],
+        ignoreAttribute: ['data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap', 'role', 'as'],
       },
     ],
     'max-len': ['warn', { ignoreComments: true, code: 120 }],
@@ -63,6 +64,7 @@ module.exports = {
     'no-console': 'off',
     'linebreak-style': 'off',
     'arrow-body-style': 'off',
+    'mkiloyan-path-plugin/path-checker': 'error',
   },
   globals: {
     __IS_DEV__: true,
